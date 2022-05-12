@@ -53,7 +53,7 @@ def load_reference_data(data_path: str, delimeter='\t', decimal_char='.') -> Ref
             with open(data_path) as raw_data:
                 profile_name = raw_data.readline()
                 profile_id = raw_data.readline()
-                extract_date = raw_data.readline() 
+                extract_date = raw_data.readline()
                 meta_data = raw_data.readline().split(" ")
 
                 data_from_file = []
