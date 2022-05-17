@@ -131,3 +131,7 @@ dmypy.json
 # JetBrains IDE
 *.iml
 .idea
+
+
+# Specific files
+data

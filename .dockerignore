@@ -4,3 +4,4 @@ venv
 *.iml
 *//__pycache__
 *.pyc
+data
