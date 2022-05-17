@@ -16,13 +16,13 @@ from argparse_ext import ModelHelp, SetFigureSizeAction
 
 def define_multiple_input_raster_options(parser: argparse.ArgumentParser):
     parser.add_argument("--sentinel-data", required=True, type=str,
-                        help="GDAL dataset path for sentinel 1C", action='append')
+                        help="GDAL dataset path for sentinel", action='append')
     parser.add_argument("--disable-gaussian-filtering", action="store_const", const=True)
 
 
 def define_input_raster_options(parser: argparse.ArgumentParser):
     parser.add_argument("--sentinel-data", required=True, type=str,
-                        help="GDAL dataset path for sentinel 1C")
+                        help="GDAL dataset path for sentinel")
     parser.add_argument("--disable-gaussian-filtering", action="store_const", const=True)
 
 
@@ -39,7 +39,7 @@ def define_input_reference_data_options(parser: argparse.ArgumentParser):
                                   help="Path to reference data folder with txt data files")
     parser.add_argument("--reference-data-srs", required=False, type=argparse_types.coordinate_reference_system,
                         help="Optionally you can override default reference data srs. Required is WKT, proj "
-                             "or EPSG numbber")
+                             "or EPSG number")
     parser.add_argument("--reference-data-bounds", type=argparse_types.separated_list(dtype=float), default=[2.0, 10.0])
 
 
@@ -47,7 +47,9 @@ def define_calibration_specific_options(parser: argparse.ArgumentParser):
     from models.abstract import input_data
     input_data_list = [getattr(input_data, a) for a in vars(input_data) if not a.startswith('_')]
     models_with_ellipsis = [mcls.__name__ for mcls in models_utils.get_available_non_abstract_models().values()
-                            if mcls.model_class_meta_data.required_input_data is Ellipsis]
+                            if mcls.model_class_meta_data.required_input_data is Ellipsis
+                            or (isinstance(mcls.model_class_meta_data.required_input_data, list)
+                                and Ellipsis in mcls.model_class_meta_data.required_input_data)]
 
     models_with_ellipsis_text = str(models_with_ellipsis) if len(models_with_ellipsis) > 0 else "None"
 

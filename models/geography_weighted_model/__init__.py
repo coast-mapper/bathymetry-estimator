@@ -58,10 +58,10 @@ class GeographyWeightedModelMeta(models.abstract.AbstractModelMeta):
                                help="Model centers coordinates system in WKT format.")
             group.add_argument("--gwm-models-centers-source", choices=['compute', 'predefined'], default='predefined',
                                help="How models centers are determined. Compute is deprecated")
-            group.add_argument("--gwm-no-of-local-models", type=int, action=DeprecatedStoreAction,
-                               help="(Deprecated) Number of local models. Used in case 'compute' option for models center source")
-            group.add_argument("--gwm-local-model-range", type=int, action=DeprecatedStoreAction,
-                               help="(Deprecated) Range of local models in meters.")
+            group.add_argument("--gwm-no-of-local-models", type=int,
+                               help="Number of local models. Used in case 'compute' option for models center source")
+            group.add_argument("--gwm-local-model-range", type=int,
+                               help="Range of local models in meters.")
 
     @property
     def model_class_meta_data(cls) -> models.abstract.ModelClassMetaData:
@@ -130,12 +130,9 @@ class GeographyWeightedModel(models.abstract.AbstractModel, metaclass=GeographyW
                  _local_models: typing.Optional[typing.List[LocalModel]] = None,
                  *args, **kwargs):
         if _local_models is None:
-            if gwm_local_model_range is not None:
-                warnings.warn("Global range for GWM models is deprecated.", DeprecationWarning, stacklevel=2)
             self._local_model_range = gwm_local_model_range
 
             if gwm_models_centers_source == 'compute':
-                warnings.warn("Computing local centers in GWM model is deprecated.", DeprecationWarning, stacklevel=2)
                 self._need_to_compute_centers = True
                 self._no_local_models = gwm_no_of_local_models
                 self._local_model_range = gwm_local_model_range

@@ -45,7 +45,7 @@ def print_model_description(model_cls: models.abstract.AbstractModelMeta):
         print("\tThis model has partially bound input data list. To specify input data in place of ... please"
               " use --input-data option while training.")
 
-    print("Does model supports validation data: %s" % ("Yes" if meta_data.supports_validation_data else "No"))
+    print("Does model support validation data: %s" % ("Yes" if meta_data.supports_validation_data else "No"))
 
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, add_help=False,
                                      usage=argparse.SUPPRESS)
