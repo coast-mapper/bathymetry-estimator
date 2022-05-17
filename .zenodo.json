@@ -1,0 +1,33 @@
+{
+  "title": "Bathymetry Estimator",
+  "creators": [
+    {
+      "name": "Bieliński, Tomasz",
+      "affiliation": "Gdańsk University of Technology",
+      "orcid": "0000-0003-2231-5858"
+    },
+    {
+      "name": "Sosnowski, Paweł",
+      "affiliation": "Gdańsk University of Technology",
+      "orcid": "0000-0003-1864-4560"
+    },
+    {
+      "name": "Korłub, Waldemar",
+      "affiliation": "Gdańsk University of Technology",
+      "orcid": "0000-0001-5190-6935"
+    },
+    {
+      "name": "Chybicki, Andrzej",
+      "affiliation": "Gdańsk University of Technology",
+      "orcid": "0000-0002-8005-3705"
+    }
+  ],
+  "keywords": [
+    "bathymetry",
+    "sentinel",
+    "sentinel-2",
+    "raster",
+    "python",
+    "AI"
+  ]
+}
