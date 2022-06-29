@@ -1,5 +1,4 @@
 {
-  "$schema": "https://zenodo.org/schemas/deposits/records/legacyrecord.json",
   "title": "Bathymetry Estimator",
   "description": "This software is designed to train, evaluate and run bathymetry estimation model which uses earth observation data from Sentinel-2 satellites as input.",
   "creators": [
