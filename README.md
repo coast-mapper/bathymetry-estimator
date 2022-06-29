@@ -258,87 +258,87 @@ Following train examples will be run this dataset:
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6543997.svg)](https://doi.org/10.5281/zenodo.6543997)
 
 
-Geography weighed model
+Geography weighed model *[ref]*
 ```shell
 train.py --reference-data-bounds 0,16 -m GeographyWeightedModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_gwm --model-dir /data/model_gwm --gwm-models-centers-source compute --gwm-no-of-local-models 50 --gwm-local-model-range 2500
 ```
 
-Geography weighed model in exponential mode
+Geography weighed model in exponential mode *[exp]*
 ```shell
 train.py --reference-data-bounds 0,16 -m GeographyWeightedModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_gwm_exp --model-dir /data/model_gwm_exp --gwm-models-centers-source compute --gwm-no-of-local-models 50 --gwm-local-model-range 2500 --gwm-mode exponential 
 ```
 
-Geography weighed model Keras implementation (simultaneous mode)
+Geography weighed model Keras implementation (simultaneous mode) *[gwmk]*
 ```shell
 train.py --reference-data-bounds 0,16 -m GeographyWeightedLinearModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_gwmk --model-dir /data/model_gwmk --gwmk-models-centers "MULTIPOINT M ((346637.758441 6067158.990684 5000),(316095.21729 6080528.379283 5000),(355724.469898 6060259.989847 5000),(337819.139844 6072679.203969 5000),(304999.063218 6080759.581897 5000),(330140.222103 6078504.368026 5000),(358940.068829 6056532.706564 5000),(322575.195312 6080311.178385 5000),(351325.322947 6064048.656232 5000),(342171.990224 6070057.40372 5000),(335050.704144 6074917.766471 5000),(310356.334711 6080754.661157 5000))" --gwmk-srs 32634 --validation-data-split 0.2,2 --keras-max-iterations 1000
 ```
 
-Geography weighed model Keras implementation (separate mode)
+Geography weighed model Keras implementation (separate mode) *[gwmk_ref]*
 ```shell
 train.py --reference-data-bounds 0,16 -m GeographyWeightedLinearModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_gwmk_ref --model-dir /data/model_gwmk_ref --gwmk-models-centers "MULTIPOINT M ((346637.758441 6067158.990684 5000),(316095.21729 6080528.379283 5000),(355724.469898 6060259.989847 5000),(337819.139844 6072679.203969 5000),(304999.063218 6080759.581897 5000),(330140.222103 6078504.368026 5000),(358940.068829 6056532.7065645000),(322575.195312 6080311.178385 5000),(351325.322947 6064048.656232 5000),(342171.990224 6070057.40372 5000),(335050.704144 6074917.766471 5000),(310356.334711 6080754.661157 5000))" --gwmk-srs 32634 --validation-data-split 0.2,2 --keras-max-iterations 15 --gwmk-train-mode separate
 ```
 
-Neural networks 10 tanh, 1 lin in GWM architecture. Inputs: qloq (raw_bathymetry)
+Neural networks 10 tanh, 1 lin in GWM architecture. Inputs: qlog (raw_bathymetry) *[gwmk_nn]*
 ```shell
 train.py --reference-data-bounds 0,16 -m GeographyWeightedNeuralNetworkModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_gwmknn --model-dir /data/model_gwmknn --gwmk-models-centers "MULTIPOINT M ((346637.758441 6067158.990684 5000),(316095.21729 6080528.379283 5000),(355724.469898 6060259.989847 5000),(337819.139844 6072679.203969 5000),(304999.063218 6080759.581897 5000),(330140.222103 6078504.368026 5000),(358940.068829 6056532.706564 5000),(322575.195312 6080311.178385 5000),(351325.322947 6064048.656232 5000),(342171.990224 6070057.40372 5000),(335050.704144 6074917.766471 5000),(310356.334711 6080754.661157 5000))" --gwmk-srs 32634 --validation-data-split 0.2,2 --keras-max-iterations 1000 --gwmknn-layer 10,tanh --gwmknn-layer 1,linear --input-data raw_bathymetry
 ```
 
-Neural networks 10 tanh, 1 lin in GWM architecture. Inputs: B2, B3, B4, B8
+Neural networks 10 tanh, 1 lin in GWM architecture. Inputs: B2, B3, B4, B8 *[gwmk_nn_bands]*
 ```shell
 train.py --reference-data-bounds 0,16 -m GeographyWeightedNeuralNetworkModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_gwmknn_bands --model-dir /data/model_gwmknn_bands --gwmk-models-centers "MULTIPOINT M ((346637.758441 6067158.990684 5000),(316095.21729 6080528.379283 5000),(355724.469898 6060259.989847 5000),(337819.139844 6072679.203969 5000),(304999.063218 6080759.581897 5000),(330140.222103 6078504.368026 5000),(358940.068829 6056532.706564 5000),(322575.195312 6080311.178385 5000),(351325.322947 6064048.656232 5000),(342171.990224 6070057.40372 5000),(335050.704144 6074917.766471 5000),(310356.334711 6080754.661157 5000))" --gwmk-srs 32634 --validation-data-split 0.2,2 --keras-max-iterations 1000 --gwmknn-layer 10,tanh --gwmknn-layer 1,linear --input-data B2,B3,B4,B8
 ```
 
-Neural networks 10 tanh, 1 lin in GWM architecture. Inputs: qloq (raw_bathymetry), B2, B3, B4, B8
+Neural networks 10 tanh, 1 lin in GWM architecture. Inputs: qlog (raw_bathymetry), B2, B3, B4, B8 *[gwmk_nn_bands_qlog]*
 ```shell
 train.py --reference-data-bounds 0,16 -m GeographyWeightedNeuralNetworkModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_gwmknn_bands_qlog --model-dir /data/model_gwmknn_bands_qlog --gwmk-models-centers "MULTIPOINT M ((346637.758441 6067158.990684 5000),(316095.21729 6080528.379283 5000),(355724.469898 6060259.989847 5000),(337819.139844 6072679.203969 5000),(304999.063218 6080759.581897 5000),(330140.222103 6078504.368026 5000),(358940.068829 6056532.706564 5000),(322575.195312 6080311.178385 5000),(351325.322947 6064048.656232 5000),(342171.990224 6070057.40372 5000),(335050.704144 6074917.766471 5000),(310356.334711 6080754.661157 5000))" --gwmk-srs 32634 --validation-data-split 0.2,2 --keras-max-iterations 1000 --gwmknn-layer 10,tanh --gwmknn-layer 1,linear --input-data raw_bathymetry,B2,B3,B4,B8
 ```
 
-Neural networks 10 tanh, 1 exp in GWM architecture. Inputs: qloq (raw_bathymetry)
+Neural networks 10 tanh, 1 exp in GWM architecture. Inputs: qlog (raw_bathymetry) *[gwmk_nn_exp]*
 ```shell
 train.py --reference-data-bounds 0,16 -m GeographyWeightedNeuralNetworkModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_gwmknn_exp --model-dir /data/model_gwmknn_exp --gwmk-models-centers "MULTIPOINT M ((346637.758441 6067158.990684 5000),(316095.21729 6080528.379283 5000),(355724.469898 6060259.989847 5000),(337819.139844 6072679.203969 5000),(304999.063218 6080759.581897 5000),(330140.222103 6078504.368026 5000),(358940.068829 6056532.706564 5000),(322575.195312 6080311.178385 5000),(351325.322947 6064048.656232 5000),(342171.990224 6070057.40372 5000),(335050.704144 6074917.766471 5000),(310356.334711 6080754.661157 5000))" --gwmk-srs 32634 --validation-data-split 0.2,2 --keras-max-iterations 1000 --gwmknn-layer 10,tanh --gwmknn-layer 1,linear --input-data raw_bathymetry
 ```
 
-Decision tree regression. Inputs: B2, B3, B4, B8
+Decision tree regression. Inputs: B2, B3, B4, B8 *[rt_bands]*
 ```shell
 train.py --reference-data-bounds 0,16 -m RegressionTreeModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_rt_bands --model-dir /data/model_rt_bands --input-data B2,B3,B4,B8
 ```
 
-Decision tree regression. Inputs: qloq (raw_bathymetry)
+Decision tree regression. Inputs: qlog (raw_bathymetry) *[rt_qlog]*
 ```shell
 train.py --reference-data-bounds 0,16 -m RegressionTreeModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_rt_qlog --model-dir /data/model_rt_qlog --input-data raw_bathymetry
 ```
 
-Decision tree regression. Inputs: qloq (raw_bathymetry), B2, B3, B4, B8
+Decision tree regression. Inputs: qlog (raw_bathymetry), B2, B3, B4, B8 *[rt_qlog_bands]*
 ```shell
 train.py --reference-data-bounds 0,16 -m RegressionTreeModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_rt_qlog_bands --model-dir /data/model_rt_qlog_bands --input-data raw_bathymetry,B2,B3,B4,B8
 ```
 
-Decision tree regression. Inputs: x, y, B2, B3, B4, B8
+Decision tree regression. Inputs: x, y, B2, B3, B4, B8 *[rt_spatial_bands]*
 ```shell
 train.py --reference-data-bounds 0,16 -m RegressionTreeModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_rt_spatial_bands --model-dir /data/model_rt_spatial_bands --input-data x,y,B2,B3,B4,B8
 ```
 
-Decision tree regression. Inputs: x, y, qloq (raw_bathymetry)
+Decision tree regression. Inputs: x, y, qlog (raw_bathymetry) *[rt_spatial_qlog]*
 ```shell
 train.py --reference-data-bounds 0,16 -m RegressionTreeModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_rt_spatial_qlog --model-dir /data/model_rt_spatial_qlog --input-data x,y,raw_bathymetry
 ```
 
-Decision tree regression. Inputs: x, y, qloq (raw_bathymetry), B2, B3, B4, B8
+Decision tree regression. Inputs: x, y, qlog (raw_bathymetry), B2, B3, B4, B8 *[rt_spatial_qlog_bands]*
 ```shell
 train.py --reference-data-bounds 0,16 -m RegressionTreeModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_rt_spatial_qlog_bands --model-dir /data/model_rt_spatial_qlog_bands --input-data x,y,raw_bathymetry,B2,B3,B4,B8
 ```
 
-Random forest regression. Inputs: B2, B3, B4, B8
+Random forest regression. Inputs: B2, B3, B4, B8 *[rf_bands]*
 ```shell
 train.py --reference-data-bounds 0,16 -m RegressionForestModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_rf_bands --model-dir /data/model_rf_bands --input-data B2,B3,B4,B8
 ```
 
-Random forest regression. Inputs: qloq (raw_bathymetry)
+Random forest regression. Inputs: qlog (raw_bathymetry) *[rf_qlog]*
 ```shell
 train.py --reference-data-bounds 0,16 -m RegressionForestModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_rf_qlog --model-dir /data/model_rf_qlog --input-data raw_bathymetry
 ```
 
-Random forest regression. Inputs: qloq (raw_bathymetry), B2, B3, B4, B8
+Random forest regression. Inputs: qlog (raw_bathymetry), B2, B3, B4, B8 *[rf_qlog_bands]*
 ```shell
 train.py --reference-data-bounds 0,16 -m RegressionForestModel --sentinel-data /data/S2A_MSIL1C_20190630T100031_N0207_R122_T34UCF_20190630T120400.jp2 --reference-data /data/reference_data_34.csv --test-data-split 0.1,2 --report-dir /data/report_rf_qlog_bands --model-dir /data/model_rf_qlog_bands --input-data raw_bathymetry,B2,B3,B4,B8
 ```
