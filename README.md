@@ -1,4 +1,5 @@
 # Bathymetry Estimator
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6779671.svg)](https://doi.org/10.5281/zenodo.6779671)
 
 This software is designed to train, evaluate and run bathymetry estimation model which uses earth observation data from Sentinel-2 satellites as input.
 It consists of 3 main scripts:
