@@ -1,10 +1,10 @@
 # Bathymetry Estimator
 
-This software is designed to train, evaluate and run batyhmetry estimation model which uses earth observation data from Sentinel-2 satellites as input.
+This software is designed to train, evaluate and run bathymetry estimation model which uses earth observation data from Sentinel-2 satellites as input.
 It consists of 3 main scripts:
 
 * `train.py` - which is used to train model using Sentinel-2 images and reference data acquired by in-situ measurements,
-* `evaluate.py` - this script is used to quality of estimations made by specific model on provided data. Especially on other non training data.
+* `evaluate.py` - this script is used to quality of estimations made by specific model on provided data. Especially on other non-training data.
 * `predict.py` - this script is indented for operational use. It predicts bathymetry using input image with provided model.
 
 This software supports following models:

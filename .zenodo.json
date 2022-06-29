@@ -1,5 +1,7 @@
 {
+  "$schema": "https://zenodo.org/schemas/deposits/records/legacyrecord.json",
   "title": "Bathymetry Estimator",
+  "description": "This software is designed to train, evaluate and run bathymetry estimation model which uses earth observation data from Sentinel-2 satellites as input.",
   "creators": [
     {
       "name": "Bieliński, Tomasz",
@@ -22,7 +24,17 @@
       "orcid": "0000-0002-8005-3705"
     }
   ],
-  "licence": "CC-BY-NC-4.0",
+  "license": "CC-BY-NC-4.0",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/coast-mapper/bathymetry-estimator"
+    },
+    {
+      "relation": "isSupplementedBy",
+      "identifier": "10.5281/zenodo.6543997"
+    }
+  ],
   "keywords": [
     "bathymetry",
     "sentinel",
