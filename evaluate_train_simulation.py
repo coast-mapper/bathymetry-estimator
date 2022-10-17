@@ -26,7 +26,7 @@ def parse_args():
     argparse_def.define_input_reference_data_options(parser)
     argparse_def.define_data_split_options(parser)
     argparse_def.define_evaluate_specific_options(parser)
-    argparse_def.define_ploting_options(parser)
+    argparse_def.define_plotting_options(parser)
 
     args = parser.parse_args()
 

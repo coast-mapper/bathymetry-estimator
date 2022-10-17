@@ -22,6 +22,7 @@ def parse_args():
     argparse_def.define_input_reference_data_options(parser)
     argparse_def.define_calibration_specific_options(parser)
     argparse_def.define_model_specific_options(parser)
+    argparse_def.define_plotting_options(parser)
 
     args = parser.parse_args()
 

@@ -84,7 +84,7 @@ def define_data_split_options(parser: argparse.ArgumentParser):
                                   "fraction and optionally random state in such format: frac[,state] .")
 
 
-def define_ploting_options(parser: argparse.ArgumentParser):
+def define_plotting_options(parser: argparse.ArgumentParser):
     parser.add_argument("--figure-size", required=False, type=argparse_types.separated_tuple([float, float], ','),
                         action=SetFigureSizeAction,
                         help="Default size of figure in inches.")
